@@ -1,7 +1,6 @@
 const bookingForm = document.querySelector(".booking-form_container");
 const enquireForm = document.querySelector(".enquire-form_container");
 const scrollBtn = document.querySelector(".scrollup_btn");
-const toggleBtn = document.querySelector(".menu-logo");
 const headerNavBar = document.querySelector(".nav-links");
 const headerNavIcon = document.querySelector(".menubar");
 const firstName = document.querySelector(".firstname");
@@ -13,10 +12,27 @@ const date = document.querySelector(".date");
 const duration = document.querySelector(".duration");
 const message = document.querySelector(".message");
 const errorMsg = document.querySelector(".error-mssg");
-const errorMssg = document.querySelector(".error_mssg");
 const fullName = document.querySelector(".fullname");
 const enquireEmail = document.querySelector(".enquire-email");
 const enquireMessage = document.querySelector(".enquire-textarea");
+
+
+
+headerNavIcon.addEventListener("click", () => {
+    headerNavBar.classList.toggle("headervisible");
+})
+window.onscroll = () => {
+    if (!scrollBtn) return;
+    if (window.scrollY > 100) {
+        scrollBtn.style.display = "flex"
+    }
+    else {
+        scrollBtn.style.display = "none"
+
+    }
+}
+
+
 
 // Show or hide error message
 function showError() {
@@ -25,30 +41,19 @@ function showError() {
 function clearError() {
     errorMsg.style.display = "none";
 }
-function showErrorMsg() {
-    errorMssg.style.display = "flex";
-}
-function clearErrorMsg() {
-    errorMssg.style.display = "none";
-}
+
 // Function to hide error when user types
 function clearErrorOnInput(inputElement) {
     inputElement.addEventListener("input", () => {
         errorMsg.style.display = "none";
     });
 }
-function clearErrorOnInput(inputElement) {
-    inputElement.addEventListener("input", () => {
-        errorMssg.style.display = "none";
-    });
-}
 
-[firstName, lastName, email, phoneNumber, address, date, duration, message].forEach(input => {
+
+[firstName, lastName, email, phoneNumber, address, date, duration, message, fullName, enquireEmail, enquireMessage].forEach(input => {
     if (input) clearErrorOnInput(input);
 });
-[fullName, enquireEmail, enquireMessage].forEach(input => {
-    if (input) clearErrorOnInput(input);
-});
+
 
 if (bookingForm) {
     bookingForm.addEventListener("submit", (e) => {
@@ -68,30 +73,15 @@ if (enquireForm) {
     enquireForm.addEventListener("submit", (e) => {
         e.preventDefault()
         if (fullName.value === "" || enquireEmail.value === "" || enquireMessage.value === "") {
-            showErrorMsg();
+            showError();
         }
         else {
-            clearErrorMsg();
+            clearError();
             alert("Form submitted successfully!")
             enquireForm.reset();
 
         }
     });
 }
-
-headerNavIcon.addEventListener("click", () => {
-    headerNavBar.classList.toggle("headervisible");
-})
-window.onscroll = () => {
-    if (!scrollBtn) return;
-    if (window.scrollY > 100) {
-        scrollBtn.style.display = "flex"
-    }
-    else {
-        scrollBtn.style.display = "none"
-
-    }
-}
-
 
 AOS.init();
