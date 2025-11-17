@@ -3,6 +3,7 @@
     --navColor: #0d1736;
     --secondaryColor: #d4a5a5;
     --buttonColor: #c78b8b;
+    --priceColor: #c77373;
     --errorColor: #842923;
     --whiteColor: #fff;
     --lightGreen: #022c45;
@@ -238,7 +239,7 @@ header {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    gap: 5rem;
     margin: 1rem auto 5rem auto;
     width: 90%;
 
@@ -289,23 +290,28 @@ header {
 .product-details span {
     font-family: var(--font);
     color: var(--primaryColor);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
 .product-details p {
+    white-space: nowrap;
     font-family: var(--font);
+    font-weight: 600;
     font-size: 0.8rem;
-    color: var(--primaryColor);
+    color: var(--priceColor);
 }
 
 .buy-btn {
     display: flex;
     width: max-content;
     text-align: center;
+    font-family: var(--font);
+    font-size: 1rem;
     background-color: var(--buttonColor);
-    margin-top: 3rem;
-    padding: 0.4rem 0.8rem;
+    margin-top: 1rem;
+    white-space: nowrap;
+    padding: 0.7rem 0.8rem;
     color: var(--whiteColor);
     border: none;
     border-radius: 5px;
@@ -518,7 +524,7 @@ footer {
 
 .scroll-icon {
     color: var(--secondaryColor);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .scrollup_btn {
@@ -706,7 +712,7 @@ footer {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    gap: 2rem;
     margin: 2rem auto 5rem auto;
     width: 90%;
 
